@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射文件 namespace指向接口-->
+<mapper namespace="com.roger.mybatis.mapper.EmpMapper">
+    <!--
+        select 代表查询
+        id:要与接口的方法名字相同
+    -->
+    <select id="findById" parameterType="Integer" resultType="com.roger.mybatis.entity.Emp">
+        select * from emp where empno = #{empno}
+    </select>
+</mapper>
