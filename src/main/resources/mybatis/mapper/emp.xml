@@ -8,7 +8,23 @@
         select 代表查询
         id:要与接口的方法名字相同
     -->
-    <select id="findById" parameterType="Integer" resultType="com.roger.mybatis.entity.Emp">
+    <select id="findById" parameterType="Integer" resultMap="empMap">
         select * from emp where empno = #{empno}
     </select>
+    <select id="getDeptById" parameterType="Integer" resultType="com.roger.mybatis.entity.Dept">
+        select deptno deptNo,dname dName,loc location from dept where deptno = #{id}
+    </select>
+    <resultMap id="empMap" type="com.roger.mybatis.entity.Emp">
+        <id column="empno" property="empNo"/>
+        <result column="ename" property="eName"/>
+        <result column="job" property="job"/>
+        <result column="mgr" property="manager"/>
+        <result column="hiredate" property="hiredate"/>
+        <result column="sal" property="salary"/>
+        <result column="comm" property="comm"/>
+        <result column="deptno" property="deptNo"/>
+        <association property="dept" select="getDeptById" column="deptno">
+        </association>
+    </resultMap>
+
 </mapper>

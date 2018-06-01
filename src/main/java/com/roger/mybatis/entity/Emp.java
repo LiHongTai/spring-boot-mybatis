@@ -12,13 +12,14 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Emp implements Serializable {
 
-    private Integer empno;
-    private String ename;
+    private Integer empNo;
+    private String eName;
     private String job;
-    private String mgr;
+    private String manager;
     private LocalDate hiredate;
-    private Double sal;
+    private Double salary;
     private Double comm;
-    private Integer deptno;
+    private Integer deptNo;
+    private Dept dept;
 
 }
